@@ -1,0 +1,7 @@
+Makefile
+*.o
+moc_*.cpp
+qrc_*.cpp
+documentation.list
+*.qm
+*.pro.user

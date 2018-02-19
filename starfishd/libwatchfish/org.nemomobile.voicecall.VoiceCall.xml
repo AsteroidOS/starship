@@ -1,0 +1,69 @@
+<!DOCTYPE node PUBLIC "-//freedesktop//DTD D-BUS Object Introspection 1.0//EN"
+"http://www.freedesktop.org/standards/dbus/1.0/introspect.dtd">
+<node>
+  <interface name="org.nemomobile.voicecall.VoiceCall">
+    <property name="handlerId" type="s" access="read"/>
+    <property name="providerId" type="s" access="read"/>
+    <property name="status" type="i" access="read"/>
+    <property name="statusText" type="s" access="read"/>
+    <property name="lineId" type="s" access="read"/>
+    <property name="startedAt" type="((iii)(iiii)i)" access="read">
+      <annotation name="org.qtproject.QtDBus.QtTypeName" value="QDateTime"/>
+    </property>
+    <property name="duration" type="i" access="read"/>
+    <property name="isIncoming" type="b" access="read"/>
+    <property name="isEmergency" type="b" access="read"/>
+    <property name="isMultiparty" type="b" access="read"/>
+    <property name="isForwarded" type="b" access="read"/>
+    <signal name="error">
+      <arg name="message" type="s" direction="out"/>
+    </signal>
+    <signal name="statusChanged">
+      <arg type="i" direction="out"/>
+      <arg type="s" direction="out"/>
+    </signal>
+    <signal name="lineIdChanged">
+      <arg type="s" direction="out"/>
+    </signal>
+    <signal name="startedAtChanged">
+      <arg type="((iii)(iiii)i)" direction="out"/>
+      <!-- For some reason both directions are seemingly required here -->
+      <annotation name="org.qtproject.QtDBus.QtTypeName.Out0" value="QDateTime"/>
+      <annotation name="org.qtproject.QtDBus.QtTypeName.In0" value="QDateTime"/>
+    </signal>
+    <signal name="durationChanged">
+      <arg type="i" direction="out"/>
+    </signal>
+    <signal name="emergencyChanged">
+      <arg type="b" direction="out"/>
+    </signal>
+    <signal name="multipartyChanged">
+      <arg type="b" direction="out"/>
+    </signal>
+    <signal name="forwardedChanged">
+      <arg type="b" direction="out"/>
+    </signal>
+    <method name="answer">
+      <arg type="b" direction="out"/>
+    </method>
+    <method name="hangup">
+      <arg type="b" direction="out"/>
+    </method>
+    <method name="hold">
+      <arg type="b" direction="out"/>
+      <arg name="on" type="b" direction="in"/>
+    </method>
+    <method name="deflect">
+      <arg type="b" direction="out"/>
+      <arg name="target" type="s" direction="in"/>
+    </method>
+    <method name="sendDtmf">
+      <arg name="tones" type="s" direction="in"/>
+    </method>
+    <method name="getProperties">
+      <arg type="a{sv}" direction="out"/>
+      <annotation name="org.qtproject.QtDBus.QtTypeName.Out0" value="QVariantMap"/>
+    </method>
+  </interface>
+</node>
+

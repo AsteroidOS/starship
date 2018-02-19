@@ -1,0 +1,3 @@
+[submodule "starfishd/libwatchfish"]
+	path = starfishd/libwatchfish
+	url = https://git.javispedro.com/libwatchfish.git

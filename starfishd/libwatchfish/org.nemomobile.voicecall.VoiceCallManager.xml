@@ -1,0 +1,53 @@
+<!DOCTYPE node PUBLIC "-//freedesktop//DTD D-BUS Object Introspection 1.0//EN"
+"http://www.freedesktop.org/standards/dbus/1.0/introspect.dtd">
+<node>
+  <interface name="org.nemomobile.voicecall.VoiceCallManager">
+    <property name="providers" type="as" access="read"/>
+    <property name="voiceCalls" type="as" access="read"/>
+    <property name="activeVoiceCall" type="s" access="read"/>
+    <property name="audioMode" type="s" access="readwrite"/>
+    <property name="isAudioRouted" type="b" access="readwrite"/>
+    <property name="isMicrophoneMuted" type="b" access="readwrite"/>
+    <property name="isSpeakerMuted" type="b" access="readwrite"/>
+    <property name="totalOutgoingCallDuration" type="i" access="read"/>
+    <property name="totalIncomingCallDuration" type="i" access="read"/>
+    <signal name="error">
+      <arg name="message" type="s" direction="out"/>
+    </signal>
+    <signal name="providersChanged">
+    </signal>
+    <signal name="voiceCallsChanged">
+    </signal>
+    <signal name="activeVoiceCallChanged">
+    </signal>
+    <signal name="audioModeChanged">
+    </signal>
+    <signal name="audioRoutedChanged">
+    </signal>
+    <signal name="microphoneMutedChanged">
+    </signal>
+    <signal name="speakerMutedChanged">
+    </signal>
+    <signal name="totalOutgoingCallDurationChanged">
+    </signal>
+    <signal name="totalIncomingCallDurationChanged">
+    </signal>
+    <method name="dial">
+      <arg type="b" direction="out"/>
+      <arg name="provider" type="s" direction="in"/>
+      <arg name="msisdn" type="s" direction="in"/>
+    </method>
+    <method name="silenceRingtone">
+    </method>
+    <method name="startDtmfTone">
+      <arg type="b" direction="out"/>
+      <arg name="tone" type="s" direction="in"/>
+    </method>
+    <method name="stopDtmfTone">
+      <arg type="b" direction="out"/>
+    </method>
+    <method name="resetCallDurationCounters">
+    </method>
+  </interface>
+</node>
+

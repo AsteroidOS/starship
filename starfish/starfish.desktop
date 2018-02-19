@@ -1,0 +1,5 @@
+[Desktop Entry]
+Name=Starfish
+Exec=invoker -s --type=browser -G /usr/bin/starfish
+Icon=starfish
+Type=Application

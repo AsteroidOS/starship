@@ -1,0 +1,13 @@
+<!DOCTYPE node PUBLIC "-//freedesktop//DTD D-BUS Object Introspection 1.0//EN"
+"http://www.freedesktop.org/standards/dbus/1.0/introspect.dtd">
+<node>
+  <interface name="com.Meego.MainVolume2">
+    <property name="StepCount" type="u" access="read"/>
+	<property name="CurrentStep" type="u" access="readwrite"/>
+	<signal name="StepsUpdated">
+      <arg name="StepCount" type="u" direction="out"/>
+	  <arg name="CurrentStep" type="u" direction="out"/>
+    </signal>
+  </interface>
+</node>
+
