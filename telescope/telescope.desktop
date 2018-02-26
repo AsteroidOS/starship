@@ -1,0 +1,7 @@
+[Desktop Entry]
+_Name=telescope
+Exec=qmlscene %U telescope/telescope.qml
+Icon=telescope/icon.svg
+Terminal=false
+Type=Application
+X-Ubuntu-Touch=true

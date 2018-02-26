@@ -1,0 +1,16 @@
+{
+    "name": "telescope.asteroidos",
+    "description": "description of telescope",
+    "architecture": "@CLICK_ARCH@",
+    "title": "Telescope",
+    "hooks": {
+        "telescope": {
+            "apparmor": "telescope/telescope.apparmor",
+            "desktop":  "telescope/telescope.desktop"
+        }
+    },
+    "version": "0.1",
+    "maintainer": "Florian Blasius <your@mail.com>",
+    "framework" : "ubuntu-sdk-15.04"
+}
+
