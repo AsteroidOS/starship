@@ -1,6 +1,6 @@
 TEMPLATE = subdirs
 
-#CONFIG += utouch
+CONFIG += utouch
 
 SUBDIRS = starfish starfishd
 
