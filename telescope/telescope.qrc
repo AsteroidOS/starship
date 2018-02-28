@@ -1,0 +1,11 @@
+<RCC>
+    <qresource prefix="/">
+        <file>qml/telescope.qml</file>
+        <file>qml/pages/InfoPage.qml</file>
+        <file>qml/pages/LoadingPage.qml</file>
+        <file>qml/pages/LocationPicker.qml</file>
+        <file>qml/pages/MainMenuPage.qml</file>
+        <file>qml/pages/WatchesPage.qml</file>
+        <file>qml/pages/WeatherSettingsDialog.qml</file>
+    </qresource>
+</RCC>

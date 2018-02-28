@@ -1,30 +1,37 @@
-TEMPLATE = aux
+TEMPLATE = app
 TARGET = telescope
+
+load(ubuntu-click)
+
+QT += qml quick dbus
+CONFIG += c++11
+
+STARFISH_PATH = ../starfish
+
+SOURCES += \
+    $$STARFISH_PATH/servicecontrol.cpp \
+    $$STARFISH_PATH/watch.cpp \
+    $$STARFISH_PATH/watches.cpp \
+    main.cpp
+
+HEADERS += \
+    $$STARFISH_PATH/servicecontrol.h \
+    $$STARFISH_PATH/watch.h \
+    $$STARFISH_PATH/watches.h \
 
 RESOURCES += telescope.qrc
 
-QML_FILES += $$files(*.qml,true) \
-             $$files(*.js,true)
-
-CONF_FILES +=  telescope.apparmor \
-               icon.svg
-
-OTHER_FILES += $${CONF_FILES} \
-               $${QML_FILES} \
-               telescope.desktop 
-
-#specify where the qml/js files are installed to
-qml_files.path = /telescope
-qml_files.files += $${QML_FILES}
+OTHER_FILES += telescope.apparmor \
+               telescope.desktop \
+               telescope.svg \
 
 #specify where the config files are installed to
 config_files.path = /telescope
-config_files.files += $${CONF_FILES}
+config_files.files += $${OTHER_FILES}
+message($$config_files.files)
+INSTALLS+=config_files
 
-#install the desktop file, a translated version is automatically created in 
-#the build directory
-desktop_file.path = /telescope
-desktop_file.files = $$OUT_PWD/telescope.desktop 
-desktop_file.CONFIG += no_check_exist 
+# Default rules for deployment.
+target.path = $${UBUNTU_CLICK_BINARY_PATH}
+INSTALLS+=target
 
-INSTALLS+=config_files qml_files desktop_file

@@ -1,0 +1,25 @@
+{
+    "configurations": [
+        {
+            "name": "Linux",
+            "includePath": [
+                "${workspaceRoot}",
+                "/home/florian/Qt/5.10.0/gcc_64/include/QtCore",
+                "/home/florian/Qt/5.10.0/gcc_64/include/QtGui",
+                "/home/florian/Qt/5.10.0/gcc_64/include/"
+            ],
+            "defines": [],
+            "browse": {
+                "path": [
+                    "/home/florian/Qt/5.10.0/gcc_64/include/",
+                    "/home/florian/Qt/5.10.0/gcc_64/include/QtCore",
+                    "/home/florian/Qt/5.10.0/gcc_64/include/QtGui",
+                    "${workspaceRoot}"
+                ],
+                "databaseFilename": ""
+            },
+            "intelliSenseMode": "clang-x64"
+        }
+    ],
+    "version": 3
+}

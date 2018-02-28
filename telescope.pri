@@ -6,7 +6,6 @@
 load(ubuntu-click)
 
 SUBDIRS += telescope \
-           telescopebe
 
 # specify the manifest file, this file is required for click
 # packaging and for the IDE to create runconfigurations

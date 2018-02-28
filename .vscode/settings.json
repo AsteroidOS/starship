@@ -1,0 +1,6 @@
+{
+    "files.associations": {
+        "qguiapplication": "cpp",
+        "qsettings": "cpp"
+    }
+}

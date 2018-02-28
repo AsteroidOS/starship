@@ -1,6 +1,6 @@
 {
     "name": "telescope.asteroidos",
-    "description": "description of telescope",
+    "description": "A Ubuntu touch synchronization client for AsteroidOS.",
     "architecture": "@CLICK_ARCH@",
     "title": "Telescope",
     "hooks": {
@@ -10,7 +10,7 @@
         }
     },
     "version": "0.1",
-    "maintainer": "Florian Blasius <your@mail.com>",
+    "maintainer": "Florian Blasius <flovanpt@posteo.de>",
     "framework" : "ubuntu-sdk-15.04"
 }
 

@@ -52,12 +52,12 @@ MainView {
         if (watches.connectedToService) {
             pageStack.clear()
             if (curWatch >= 0)
-                pageStack.push(Qt.resolvedUrl("MainMenuPage.qml"), {watch: getCurWatch()})
+                pageStack.push("qrc:/qml/pages/MainMenuPage.qml", {watch: getCurWatch()})
             else
-                pageStack.push(Qt.resolvedUrl("WatchesPage.qml"))
+                pageStack.push("qrc:/qml/pages/WatchesPage.qml");
         } else {
             pageStack.clear();
-            pageStack.push(Qt.resolvedUrl('LoadingPage.qml'));
+            pageStack.push("qrc:/qml/pages/LoadingPage.qml");
         }
     }
 

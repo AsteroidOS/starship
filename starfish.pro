@@ -2,13 +2,13 @@ TEMPLATE = subdirs
 
 #CONFIG += utouch
 
-SUBDIRS = starfishd starfishd
+SUBDIRS = starfish starfishd
 
 OTHER_FILES = telescope.pri
 
 utouch {
     include(telescope.pri)
-    SUBDIRS -= starfishd starfishd
+    SUBDIRS -= starfish
 }
 
 OTHER_FILES += \
