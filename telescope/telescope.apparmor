@@ -1,8 +1,12 @@
 {
     "policy_groups": [
-        "networking"
+        "networking",
+        "webview",
+        "audio",
+        "keep-display-on",
+        "content_exchange",
+        "content_exchange_source"
     ],
-    "policy_version": 1.3
+    "policy_version": 1.3,
+    "template": "unconfined"
 }
-
-

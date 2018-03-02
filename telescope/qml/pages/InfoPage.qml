@@ -8,6 +8,5 @@ Page {
         id: header
 
         title: i18n.tr('Info')
-    }
-        
+    }      
 }

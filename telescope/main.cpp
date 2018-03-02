@@ -2,7 +2,7 @@
 #include <QQmlApplicationEngine>
 #include <QQuickView>
 #include <QQmlContext>
-#include "../starfish/servicecontrol.h"
+#include "servicecontrol.h"
 #include "../starfish/watch.h"
 #include "../starfish/watches.h"
 
