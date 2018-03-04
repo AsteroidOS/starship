@@ -19,7 +19,7 @@
 
 import QtQuick 2.2
 import Sailfish.Silica 1.0
-import Starfish 1.0
+import org.asteroid.syncservice 1.0
 import org.nemomobile.dbus 2.0
 import "pages"
 

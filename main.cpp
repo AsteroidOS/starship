@@ -17,20 +17,26 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include <QCoreApplication>
-#include "dbusinterface.h"
-#include "sailfishplatform.h"
-#include "watchesmanager.h"
+#include <QtQuick>
 
-Q_DECL_EXPORT int main(int argc, char *argv[])
+#include <sailfishapp.h>
+
+int main(int argc, char *argv[])
 {
-    QCoreApplication a(argc, argv);
+    QScopedPointer<const QGuiApplication> app(SailfishApp::application(argc, argv));
+    app->setApplicationName("starfish");
+    app->setOrganizationName("asteroidos");
 
-    QLoggingCategory::setFilterRules(QStringLiteral("qt.bluetooth* = true"));
+    QTranslator i18n;
+    i18n.load("starfish_" + QLocale::system().name(), "/usr/share/starfish/translations");
+    app->installTranslator(&i18n);
 
-    WatchesManager *watchesManager = new WatchesManager();
-    SailfishPlatform *platform = new SailfishPlatform(watchesManager);
-    DBusInterface *dbusInterface = new DBusInterface(watchesManager);
+    QScopedPointer<QQuickView> view(SailfishApp::createView());
+    view->rootContext()->setContextProperty("version", QStringLiteral(VERSION));
 
-    return a.exec();
+    view->setSource(SailfishApp::pathTo("qml/starfish.qml"));
+    view->show();
+
+    return app->exec();
 }
+

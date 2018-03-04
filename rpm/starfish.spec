@@ -21,11 +21,7 @@ BuildRequires:  pkgconfig(Qt5Core)
 BuildRequires:  pkgconfig(Qt5Network)
 BuildRequires:  pkgconfig(Qt5Location)
 BuildRequires:  pkgconfig(qt5-boostable)
-BuildRequires:  pkgconfig(mpris-qt5)
-BuildRequires:  pkgconfig(timed-qt5)
-BuildRequires:  pkgconfig(mlite5)
 BuildRequires:  pkgconfig(sailfishapp) >= 0.0.10
-BuildRequires:  pkgconfig(icu-i18n)
 BuildRequires:  desktop-file-utils
 
 %description
@@ -45,17 +41,11 @@ Support for AsteroidOS watches in SailfishOS.
 rm -rf %{buildroot}
 %qmake5_install
 
-mkdir -p %{buildroot}%{_libdir}/systemd/user/user-session.target.wants
-ln -s ../starfishd.service %{buildroot}%{_libdir}/systemd/user/user-session.target.wants/
-
 desktop-file-install --delete-original       \
   --dir %{buildroot}%{_datadir}/applications             \
    %{buildroot}%{_datadir}/applications/*.desktop
 
 %post
-grep -q "^/usr/bin/starfishd" /usr/share/mapplauncherd/privileges || echo "/usr/bin/starfishd,cehlmnpu" >> /usr/share/mapplauncherd/privileges
-su nemo -c 'systemctl --user daemon-reload'
-su nemo -c 'systemctl --user try-restart starfishd.service'
 update-desktop-database
 
 %files
@@ -65,8 +55,3 @@ update-desktop-database
 %{_datadir}/%{name}/translations
 %{_datadir}/applications/%{name}.desktop
 %{_datadir}/icons/hicolor/86x86/apps/%{name}.png
-%{_datadir}/icons/hicolor/108x108/apps/%{name}.png
-%{_datadir}/icons/hicolor/128x128/apps/%{name}.png
-%{_datadir}/icons/hicolor/256x256/apps/%{name}.png
-%{_libdir}/systemd/user/%{name}d.service
-%{_libdir}/systemd/user/user-session.target.wants/%{name}d.service
