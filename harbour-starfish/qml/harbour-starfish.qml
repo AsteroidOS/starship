@@ -23,8 +23,7 @@ import org.asteroid.syncservice 1.0
 import Nemo.DBus 2.0
 import "pages"
 
-ApplicationWindow
-{
+ApplicationWindow {
     property alias curWatch: watches.currentWatch
     property alias curWatchConnected: watches.currentWatchConnected
     property string version: Qt.application.version;

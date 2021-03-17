@@ -26,7 +26,7 @@ DISTFILES += qml/harbour-starfish.qml \
     qml/pages/MainMenuPage.qml \
     qml/pages/WatchSelectionPage.qml \
     qml/pages/WeatherSettingsDialog.qml \
-    qml/PullDownMenus/StarfishPullDownMenu \
+    qml/pullDownMenus/StarfishPullDownMenu \
     translations/*.ts \
     harbour-starfish.desktop
 

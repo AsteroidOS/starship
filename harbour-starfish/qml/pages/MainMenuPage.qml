@@ -22,7 +22,7 @@ import QtQuick.Layouts 1.1
 import QtGraphicalEffects 1.0
 
 import Sailfish.Silica 1.0
-import "../PullDownMenus"
+import "../pullDownMenus"
 
 Page {
     id: pageRoot
