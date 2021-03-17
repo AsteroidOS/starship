@@ -68,11 +68,23 @@
 <context>
     <name>MainMenuPage</name>
     <message>
-        <source>Battery</source>
+        <source>unknown</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>unknown</source>
+        <source>Watch</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Menu</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Connected</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Disconnected</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

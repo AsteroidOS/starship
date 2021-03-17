@@ -43,55 +43,56 @@ Page {
             anchors.margins: Theme.paddingMedium
 
             PageHeader {
-                title: pageRoot.curWatch ? pageRoot.curWatch.name : "Menu"
+                title: pageRoot.curWatch ? pageRoot.curWatch.name : qsTr("Watch")
+                description: qsTr("Menu")
             }
 
             RowLayout {
                 width: parent.width
                 height: Theme.iconSizeLarge
 
-                Icon {
-                    height: Theme.iconSizeSmall
-                    width: height
-                    source: "image://theme/icon-m-" + (curWatchConnected ? "bluetooth-device" : "warning")
-                    Layout.alignment: Qt.AlignVCenter
+                RowLayout {
+                    height: Theme.iconSizeLarge
+
+                    Icon {
+                        height: Theme.iconSizeSmall
+                        width: height
+                        source: "image://theme/icon-m-" + (curWatchConnected ? "bluetooth-device" : "warning")
+                        Layout.alignment: Qt.AlignVCenter | Qt.AlignLeft
+                    }
+
+                    Label {
+                        padding: Theme.paddingLarge
+                        color: Theme.highlightColor
+                        font.pixelSize: Theme.fontSizeMedium
+                        text: curWatchConnected ? qsTr("Connected") : qsTr("Disconnected")
+                        Layout.fillWidth: true
+                        Layout.alignment: Qt.AlignCenter
+                    }
                 }
 
-                Label {
-                    padding: Theme.paddingLarge
-                    color: Theme.highlightColor
-                    font.pixelSize: Theme.fontSizeMedium
-                    text: curWatchConnected ? "Connected" : "Disconnected"
-                    Layout.fillWidth: true
-                    Layout.alignment: Qt.AlignVCenter
+                RowLayout {
+                    height: Theme.iconSizeLarge
+
+                    Icon {
+                        height: Theme.iconSizeSmall
+                        width: height
+                        source: "image://theme/icon-m-charging"
+                        Layout.alignment: Qt.AlignCenter
+                    }
+
+                    Label {
+                        padding: Theme.paddingLarge
+                        color: Theme.highlightColor
+                        font.pixelSize: Theme.fontSizeMedium
+                        text: curWatchConnected ? pageRoot.curWatch.batteryLevel + ("%") : qsTr("unknown")
+                        Layout.fillWidth: true
+                        Layout.alignment: Qt.AlignCenter
+                    }
+
                 }
             }
 
-            SectionHeader {
-                text: qsTr("Battery")
-            }
-
-            RowLayout {
-                width: parent.width
-                height: Theme.iconSizeLarge
-
-                Icon {
-                    height: Theme.iconSizeSmall
-                    width: height
-                    source: "image://theme/icon-m-charging"
-                    Layout.alignment: Qt.AlignVCenter
-                }
-
-                ProgressBar {
-                    Layout.fillWidth: true
-                    maximumValue: 100
-                    minimumValue: 0
-                    value: pageRoot.curWatch ? pageRoot.curWatch.batteryLevel : 0
-                    label: pageRoot.curWatch ? pageRoot.curWatch.batteryLevel + ("%") : qsTr("unknown")
-                    highlighted: true
-                    Layout.alignment: Qt.AlignVCenter | Qt.AlignLeft
-                }
-            }
         }
     }
 }
