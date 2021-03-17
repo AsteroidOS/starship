@@ -17,8 +17,9 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-import QtQuick 2.2
+import QtQuick 2.0
 import Sailfish.Silica 1.0
+import "../PullDownMenus"
 
 Page {
     id: loadingComponent
@@ -28,27 +29,28 @@ Page {
         width: parent.width
 
         PageHeader {
-            title: "Starfish"
+            title: qsTr("Starfish")
         }
+
+        StarfishPullDownMenu {}
 
         Label {
             width: parent.width
-            horizontalAlignment: Text.AlignHCenter
-            font.pixelSize: Theme.fontSizeLarge
-            text: qsTr("Connecting...")
-        }
 
-        Button {
-            text: qsTr("Restart Service")
-            onClicked: starfish.initService()
-            width: parent.width
+            horizontalAlignment: Text.AlignHCenter
+            verticalAlignment: Text.AlignVCenter
+
+            font.pixelSize: Theme.fontSizeLarge
+
+            text: qsTr("Connecting...")
         }
     }
 
     BusyIndicator {
         size: BusyIndicatorSize.Large
         anchors.centerIn: parent
-        running: !watches.connectedToService && loadingComponent.status === PageStatus.Active && wantConnect
+        running: !watches.connectedToService &&
+                loadingComponent.status === PageStatus.Active
+                && wantConnect
     }
 }
-

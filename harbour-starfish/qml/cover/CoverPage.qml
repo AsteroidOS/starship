@@ -43,9 +43,13 @@ CoverBackground {
         anchors.horizontalCenter: parent.horizontalCenter
         anchors.top: parent.verticalCenter
         color: Theme.highlightColor
-        text: (watch && watch.connected) ? qsTr("connected") : qsTr("disconnected")
+        text: (curWatchConnected) ? qsTr("connected") : qsTr("disconnected")
     }
-    onStatusChanged: {if(status===Cover.Activating) watch = starfish.getCurWatch()}
+    onStatusChanged: {
+        if (status===Cover.Activating) {
+            watch = starfish.getCurWatch()
+        }
+    }
 
     CoverActionList {
         id: coverAction
@@ -57,4 +61,3 @@ CoverBackground {
         }
     }
 }
-
