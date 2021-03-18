@@ -45,19 +45,10 @@ CoverBackground {
         color: Theme.highlightColor
         text: (curWatchConnected) ? qsTr("connected") : qsTr("disconnected")
     }
+
     onStatusChanged: {
         if (status===Cover.Activating) {
             watch = starfish.getCurWatch()
-        }
-    }
-
-    CoverActionList {
-        id: coverAction
-        enabled: (watch && !watch.connected)
-
-        CoverAction {
-            iconSource: "image://theme/icon-cover-sync"
-            onTriggered: watch.reconnect();
         }
     }
 }
