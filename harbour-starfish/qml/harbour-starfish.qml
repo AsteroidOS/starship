@@ -20,16 +20,20 @@
 import QtQuick 2.2
 import Sailfish.Silica 1.0
 import org.asteroid.syncservice 1.0
-import org.nemomobile.dbus 2.0
+import Nemo.DBus 2.0
 import "pages"
 
 ApplicationWindow {
-    id: starfish
-    initialPage: Qt.resolvedUrl("pages/LoadingPage.qml")
-    cover: Qt.resolvedUrl("cover/CoverPage.qml")
     property alias curWatch: watches.currentWatch
     property alias curWatchConnected: watches.currentWatchConnected
-    property var sysProfiles: [ ]
+    property string version: Qt.application.version;
+
+    id: starfish
+    initialPage: Component { LoadingPage { } }
+    cover: Qt.resolvedUrl("cover/CoverPage.qml")
+    allowedOrientations: defaultAllowedOrientations
+    Component.onCompleted: loadStack();
+
 
     ServiceController {
         id: serviceController
@@ -70,6 +74,7 @@ ApplicationWindow {
         if (!watches.connectedToService && !serviceController.serviceRunning) {
             serviceController.startService();
         }
+
         if (watches.version !== version) {
             console.log("Service file version (", version, ") is not equal running service version (", watches.version, "). Restarting service.");
             serviceController.restartService();
@@ -83,21 +88,20 @@ ApplicationWindow {
     function loadStack() {
         if (watches.connectedToService) {
             pageStack.clear()
-            if (curWatch >= 0)
-                pageStack.push(Qt.resolvedUrl("pages/MainMenuPage.qml"), {watch: getCurWatch()})
-            else
-                pageStack.push(Qt.resolvedUrl("pages/WatchesPage.qml"))
+
+            if (curWatch >= 0) {
+                pageStack.push(Qt.resolvedUrl("pages/MainMenuPage.qml"), {curWatch: getCurWatch()})
+            } else {
+                pageStack.push(Qt.resolvedUrl("pages/WatchSelectionPage.qml"))
+            }
         } else {
             pageStack.clear();
             pageStack.push(initialPage);
         }
     }
 
-    Component.onCompleted: loadStack();
-
     function getCurWatch() {
         if(curWatch >= 0) return watches.get(curWatch);
         return null;
     }
 }
-

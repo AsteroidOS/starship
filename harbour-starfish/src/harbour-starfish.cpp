@@ -17,26 +17,35 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
+#ifdef QT_QML_DEBUG
 #include <QtQuick>
+#endif
 
 #include <sailfishapp.h>
 
 int main(int argc, char *argv[])
 {
-    QScopedPointer<const QGuiApplication> app(SailfishApp::application(argc, argv));
-    app->setApplicationName("starfish");
-    app->setOrganizationName("asteroidos");
+    // SailfishApp::main() will display "qml/harbour-starfish.qml", if you need more
+    // control over initialization, you can use:
+    //
+    //   - SailfishApp::application(int, char *[]) to get the QGuiApplication *
+    //   - SailfishApp::createView() to get a new QQuickView * instance
+    //   - SailfishApp::pathTo(QString) to get a QUrl to a resource file
+    //   - SailfishApp::pathToMainQml() to get a QUrl to the main QML file
+    //
+    // To display the view, call "show()" (will show fullscreen on device).
 
-    QTranslator i18n;
-    i18n.load("starfish_" + QLocale::system().name(), "/usr/share/starfish/translations");
-    app->installTranslator(&i18n);
+    QScopedPointer<QGuiApplication> app(SailfishApp::application(argc, argv));
+
+    app->setApplicationVersion(VERSION);
+    QCoreApplication::setOrganizationName("harbour-starfish");
+    QCoreApplication::setOrganizationDomain("asteriodos.org");
+    QCoreApplication::setApplicationName("harbour-starfish");
 
     QScopedPointer<QQuickView> view(SailfishApp::createView());
-    view->rootContext()->setContextProperty("version", QStringLiteral(VERSION));
 
-    view->setSource(SailfishApp::pathTo("qml/starfish.qml"));
+    view->setSource(SailfishApp::pathToMainQml());
     view->show();
 
     return app->exec();
 }
-

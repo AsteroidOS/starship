@@ -202,14 +202,20 @@ Dialog {
             for(var i=0;i<locations.count;i++) {
                 var loc = locations.get(i);
                 ret[i] = [loc.name,loc.lat,loc.lng];
-                if(!locStore && (locStash.length<=i || ret[i][0] !== locStash[i][0] || ret[i][1] !== locStash[i][1] || ret[i][2] !== locStash[i][2])) {
+                if(!locStore &&	(
+                        locStash.length<=i ||
+                        ret[i][0] !== locStash[i][0] ||
+                        ret[i][1] !== locStash[i][1] ||
+                        ret[i][2] !== locStash[i][2])
+                    ) {
                     locStore = true;
                     console.log("Diff spotted",i,loc.name,loc.lat,loc.lng);
                 }
             }
-            if(locStore)
+
+            if(locStore) {
                 watch.weatherLocations = ret;
+            }
         }
     }
 }
-

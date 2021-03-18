@@ -20,35 +20,35 @@
 import QtQuick 2.2
 import Sailfish.Silica 1.0
 
-Page {
-    id: loadingComponent
-    property bool wantConnect: true
+CoverBackground {
+    property var watch: null
 
-    Column {
-        width: parent.width
-
-        PageHeader {
-            title: "Starfish"
-        }
-
-        Label {
-            width: parent.width
-            horizontalAlignment: Text.AlignHCenter
-            font.pixelSize: Theme.fontSizeLarge
-            text: qsTr("Connecting...")
-        }
-
-        Button {
-            text: qsTr("Restart Service")
-            onClicked: starfish.initService()
-            width: parent.width
-        }
+    Image {
+        fillMode: Image.PreserveAspectCrop
+        anchors.horizontalCenter: parent.horizontalCenter
+        anchors.bottom: label.top
+        source: "image://theme/icon-m-watch"
     }
 
-    BusyIndicator {
-        size: BusyIndicatorSize.Large
-        anchors.centerIn: parent
-        running: !watches.connectedToService && loadingComponent.status === PageStatus.Active && wantConnect
+    Label {
+        id: label
+        anchors.horizontalCenter: parent.horizontalCenter
+        anchors.bottom: state.top
+        anchors.bottomMargin: Theme.paddingSmall
+        text: (watch && watch.name) ? watch.name : qsTr("Watch")
+    }
+
+    Label {
+        id: state
+        anchors.horizontalCenter: parent.horizontalCenter
+        anchors.top: parent.verticalCenter
+        color: Theme.highlightColor
+        text: (curWatchConnected) ? qsTr("connected") : qsTr("disconnected")
+    }
+
+    onStatusChanged: {
+        if (status===Cover.Activating) {
+            watch = starfish.getCurWatch()
+        }
     }
 }
-

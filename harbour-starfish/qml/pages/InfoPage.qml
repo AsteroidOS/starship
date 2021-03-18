@@ -34,7 +34,7 @@ Page {
             spacing: Theme.paddingLarge
 
             PageHeader {
-                title: "About Starfish"
+                title: qsTr("About Starfish")
             }
 
             Row {
@@ -43,13 +43,14 @@ Page {
                 anchors.margins: Theme.paddingLarge
 
                 Image {
-                    source: "qrc:///starfish.png"
+                    source: "../img/harbour-starfish.svg"
                     height: Theme.iconSizeLarge
                     width: height
                 }
 
                 Label {
                     text: qsTr("Version %1").arg(version)
+                    color: Theme.highlightColor
                     font.pixelSize: Theme.fontSizeLarge
                 }
             }
@@ -62,12 +63,14 @@ Page {
             Label {
                 width: parent.width
                 text: qsTr("Legal")
+                color: Theme.highlightColor
                 font.bold: true
             }
 
             Label {
                 width: parent.width
                 font.pixelSize: Theme.fontSizeSmall
+                color: Theme.highlightColor
                 text: "This program is free software: you can redistribute it and/or modify "
                       + "it under the terms of the GNU General Public License as published "
                       + "by the Free Software Foundation, version 3 of the License.<br>"

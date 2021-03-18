@@ -99,6 +99,7 @@ Dialog {
             }
         }
     }
+
     function getHints(blah) {
         if(blah && blah.length === 0) return;
         var url = "http://autocomplete.wunderground.com/aq?query="+blah;
@@ -110,9 +111,14 @@ Dialog {
                     var json = JSON.parse(xhr.responseText);
                     if(json.hasOwnProperty("RESULTS") && json.RESULTS.length > 0) {
                         locModel.clear();
+
                         for(var i=0;i<json.RESULTS.length;i++) {
                             var loc = json.RESULTS[i];
-                            if(loc.type !== "city") continue;
+
+                            if(loc.type !== "city") {
+                                continue;
+                            }
+
                             locModel.append({"name":loc.name,"lat":loc.lat,"lng":loc.lon});
                         }
                     } else if(!json.hasOwnProperty("RESULTS"))
@@ -123,4 +129,3 @@ Dialog {
         xhr.send();
     }
 }
-

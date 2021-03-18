@@ -1,0 +1,3 @@
+[submodule "asteroidsyncservice"]
+	path = asteroidsyncservice
+	url = git@github.com:AsteroidOS/asteroidsyncservice.git
