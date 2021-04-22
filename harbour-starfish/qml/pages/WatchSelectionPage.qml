@@ -63,18 +63,15 @@ Page {
         }
 
         ViewPlaceholder {
-            anchors.fill: parent
-            anchors.top: parent.top
-            anchors.bottom: parent.bottom
-            width: parent.width
-
             enabled: watches.count === 0
 
             Label {
+                id: noWatchLabel
                 text: qsTr("No smartwatches configured yet. Please connect your smartwatch using System Settings.")
                 font.pixelSize: Theme.fontSizeLarge
                 width: parent.width-(Theme.paddingSmall*2)
                 anchors.centerIn: parent
+                anchors.bottomMargin: Theme.paddingLarge
                 horizontalAlignment: Text.AlignHCenter
                 wrapMode: Text.WordWrap
             }
@@ -82,8 +79,8 @@ Page {
             Button {
                 text: qsTr("Open Bluetooth Settings")
                 anchors.horizontalCenter: parent.horizontalCenter
-                anchors.bottomMargin: Theme.paddingLarge
-                anchors.bottom: parent.bottom
+                anchors.topMargin: Theme.paddingLarge
+                anchors.top: noWatchLabel.bottom
                 onClicked: starfish.startBT()
             }
         }
