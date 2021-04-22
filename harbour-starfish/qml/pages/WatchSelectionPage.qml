@@ -18,6 +18,7 @@
  */
 
 import QtQuick 2.2
+import QtQuick.Layouts 1.1
 import Sailfish.Silica 1.0
 import "../pullDownMenus"
 
@@ -26,19 +27,36 @@ Page {
         anchors.fill: parent
         model: watches
 
+        StarfishPullDownMenu {}
+
         header: PageHeader {
             title: qsTr("Starfish")
             description: qsTr("Manage Watches")
         }
 
-        pullDownMenu: StarfishPullDownMenu {}
-
         delegate: ListItem {
-            contentHeight: Theme.fontSizeMedium*2
+            enabled: watches.count !== 0
+            width: parent.width
 
-            Label {
-                text: name
-                anchors.fill: parent
+            RowLayout {
+                    height: Theme.iconSizeLarge
+                    width: parent.width
+
+                Icon {
+                    height: Theme.iconSizeSmall
+                    width: height
+                    source: "image://theme/icon-m-watch"
+                }
+
+                ColumnLayout {
+                    Label {
+                        text: name
+                    }
+
+                    Label {
+                        text: address
+                    }
+                }
             }
 
             onClicked: watches.selectWatch(index)
@@ -46,6 +64,10 @@ Page {
 
         ViewPlaceholder {
             anchors.fill: parent
+            anchors.top: parent.top
+            anchors.bottom: parent.bottom
+            width: parent.width
+
             enabled: watches.count === 0
 
             Label {
@@ -66,5 +88,4 @@ Page {
             }
         }
     }
-
 }
