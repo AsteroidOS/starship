@@ -18,6 +18,7 @@
  */
 
 import QtQuick 2.2
+import QtQuick.Layouts 1.1
 import Sailfish.Silica 1.0
 import "../pullDownMenus"
 
@@ -26,33 +27,51 @@ Page {
         anchors.fill: parent
         model: watches
 
+        StarfishPullDownMenu {}
+
         header: PageHeader {
             title: qsTr("Starfish")
             description: qsTr("Manage Watches")
         }
 
-        pullDownMenu: StarfishPullDownMenu {}
-
         delegate: ListItem {
-            contentHeight: Theme.fontSizeMedium*2
+            enabled: watches.count !== 0
+            width: parent.width
 
-            Label {
-                text: name
-                anchors.fill: parent
+            RowLayout {
+                    height: Theme.iconSizeLarge
+                    width: parent.width
+
+                Icon {
+                    height: Theme.iconSizeSmall
+                    width: height
+                    source: "image://theme/icon-m-watch"
+                }
+
+                ColumnLayout {
+                    Label {
+                        text: name
+                    }
+
+                    Label {
+                        text: address
+                    }
+                }
             }
 
             onClicked: watches.selectWatch(index)
         }
 
         ViewPlaceholder {
-            anchors.fill: parent
             enabled: watches.count === 0
 
             Label {
+                id: noWatchLabel
                 text: qsTr("No smartwatches configured yet. Please connect your smartwatch using System Settings.")
                 font.pixelSize: Theme.fontSizeLarge
                 width: parent.width-(Theme.paddingSmall*2)
                 anchors.centerIn: parent
+                anchors.bottomMargin: Theme.paddingLarge
                 horizontalAlignment: Text.AlignHCenter
                 wrapMode: Text.WordWrap
             }
@@ -60,11 +79,10 @@ Page {
             Button {
                 text: qsTr("Open Bluetooth Settings")
                 anchors.horizontalCenter: parent.horizontalCenter
-                anchors.bottomMargin: Theme.paddingLarge
-                anchors.bottom: parent.bottom
+                anchors.topMargin: Theme.paddingLarge
+                anchors.top: noWatchLabel.bottom
                 onClicked: starfish.startBT()
             }
         }
     }
-
 }
