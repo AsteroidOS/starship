@@ -21,6 +21,8 @@
 #include <QtQuick>
 #endif
 
+#include <QGuiApplication>
+#include <QQuickView>
 #include <sailfishapp.h>
 
 int main(int argc, char *argv[])
