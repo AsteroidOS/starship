@@ -68,6 +68,6 @@ desktop-file-install --delete-original       \
 %{_datadir}/icons/hicolor/*/apps/%{name}.png
 %{_libdir}/qt5/qml/org/asteroid/syncservice/libasteroidsyncserviceplugin.so
 %{_libdir}/qt5/qml/org/asteroid/syncservice/qmldir
-%{_libdir}/systemd/user/harbour-asteroidsyncserviced.service
+%{_userunitdir}/harbour-asteroidsyncserviced.service
 # >> files
 # << files

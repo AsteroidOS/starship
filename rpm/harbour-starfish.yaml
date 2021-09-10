@@ -42,7 +42,7 @@ Files:
   - '%{_datadir}/icons/hicolor/*/apps/%{name}.png'
   - '%{_libdir}/qt5/qml/org/asteroid/syncservice/libasteroidsyncserviceplugin.so'
   - '%{_libdir}/qt5/qml/org/asteroid/syncservice/qmldir'
-  - '%{_libdir}/systemd/user/harbour-asteroidsyncserviced.service'
+  - '%{_userunitdir}/harbour-asteroidsyncserviced.service'
 
 # For more information about yaml and what's supported in Sailfish OS
 # build system, please see https://wiki.merproject.org/wiki/Spectacle
