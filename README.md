@@ -14,5 +14,5 @@ Forked from [Rockpool](https://github.com/abranson/rockpool).
 | ------ | ------------------------ |
 |  ✔️     | Working fine             |
 |  ❌     | Doesn't connect          |
-|  ❗     | Looses connection        |
+|  ❗     | Loses connection        |
 |  ❔     | No information available |
