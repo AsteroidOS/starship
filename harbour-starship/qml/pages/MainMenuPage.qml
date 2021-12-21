@@ -32,7 +32,7 @@ Page {
     SilicaFlickable {
         anchors.fill: parent
 
-        StarfishPullDownMenu {}
+        StarshipPullDownMenu {}
 
         Column {
             id: column

@@ -8,10 +8,10 @@ PullDownMenu {
     }
     MenuItem {
         text: qsTr("Bluetooth Settings")
-        onClicked: starfish.startBT()
+        onClicked: starship.startBT()
     }
     MenuItem {
         text: qsTr("Restart service")
-        onClicked: starfish.restartService()
+        onClicked: starship.restartService()
     }
 }

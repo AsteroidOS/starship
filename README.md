@@ -1,7 +1,7 @@
-# Starfish - A SailfishOS synchronization client for [AsteroidOS](http://asteroidos.org/).
+# Starship - A SailfishOS synchronization client for [AsteroidOS](http://asteroidos.org/).
 Forked from [Rockpool](https://github.com/abranson/rockpool).
 
-<img src="harbour-starfish/assets/harbour-starfish.svg" width="150" />
+<img src="harbour-starship/assets/harbour-starship.svg" width="150" />
 
 ## Compatibility matrix
 

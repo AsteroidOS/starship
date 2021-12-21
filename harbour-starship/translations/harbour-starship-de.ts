@@ -27,7 +27,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>About Starfish</source>
+        <source>About Starship</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -38,7 +38,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Starfish</source>
+        <source>Starship</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -89,7 +89,7 @@
     </message>
 </context>
 <context>
-    <name>StarfishPullDownMenu</name>
+    <name>StarshipPullDownMenu</name>
     <message>
         <source>About</source>
         <translation type="unfinished"></translation>
@@ -106,7 +106,7 @@
 <context>
     <name>WatchSelectionPage</name>
     <message>
-        <source>Starfish</source>
+        <source>Starship</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
