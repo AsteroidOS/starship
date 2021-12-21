@@ -10,15 +10,15 @@
 #   - translation filenames have to be changed
 
 # The name of your application
-TARGET = harbour-starfish
+TARGET = harbour-starship
 
 CONFIG += sailfishapp
-CONFIG += starfish
+CONFIG += starship
 include(../version.pri)
 
-SOURCES += src/harbour-starfish.cpp
+SOURCES += src/harbour-starship.cpp
 
-DISTFILES += qml/harbour-starfish.qml \
+DISTFILES += qml/harbour-starship.qml \
     qml/cover/CoverPage.qml \
     qml/pages/InfoPage.qml \
     qml/pages/LoadingPage.qml \
@@ -26,9 +26,9 @@ DISTFILES += qml/harbour-starfish.qml \
     qml/pages/MainMenuPage.qml \
     qml/pages/WatchSelectionPage.qml \
     qml/pages/WeatherSettingsDialog.qml \
-    qml/pullDownMenus/StarfishPullDownMenu \
+    qml/pullDownMenus/StarshipPullDownMenu \
     translations/*.ts \
-    harbour-starfish.desktop
+    harbour-starship.desktop
 
 SAILFISHAPP_ICONS = 86x86 108x108 128x128 172x172
 
@@ -40,4 +40,4 @@ CONFIG += sailfishapp_i18n
 # planning to localize your app, remember to comment out the
 # following TRANSLATIONS line. And also do not forget to
 # modify the localized app name in the the .desktop file.
-TRANSLATIONS += translations/harbour-starfish-de.ts
+TRANSLATIONS += translations/harbour-starship-de.ts

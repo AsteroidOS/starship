@@ -27,7 +27,7 @@
 
 int main(int argc, char *argv[])
 {
-    // SailfishApp::main() will display "qml/harbour-starfish.qml", if you need more
+    // SailfishApp::main() will display "qml/harbour-starship.qml", if you need more
     // control over initialization, you can use:
     //
     //   - SailfishApp::application(int, char *[]) to get the QGuiApplication *
@@ -40,9 +40,9 @@ int main(int argc, char *argv[])
     QScopedPointer<QGuiApplication> app(SailfishApp::application(argc, argv));
 
     app->setApplicationVersion(VERSION);
-    QCoreApplication::setOrganizationName("harbour-starfish");
+    QCoreApplication::setOrganizationName("harbour-starship");
     QCoreApplication::setOrganizationDomain("asteriodos.org");
-    QCoreApplication::setApplicationName("harbour-starfish");
+    QCoreApplication::setApplicationName("harbour-starship");
 
     QScopedPointer<QQuickView> view(SailfishApp::createView());
 

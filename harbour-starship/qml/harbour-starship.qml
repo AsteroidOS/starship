@@ -28,7 +28,7 @@ ApplicationWindow {
     property alias curWatchConnected: watches.currentWatchConnected
     property string version: Qt.application.version;
 
-    id: starfish
+    id: starship
     initialPage: Component { LoadingPage { } }
     cover: Qt.resolvedUrl("cover/CoverPage.qml")
     allowedOrientations: defaultAllowedOrientations

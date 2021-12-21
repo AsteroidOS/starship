@@ -1,4 +1,4 @@
 VERSION = "1.0"
 DEFINES += VERSION=\\\"$$VERSION\\\"
-CONFIG += starfish
+CONFIG += starship
 DEFINES += SAILFISHOS_PLATFORM

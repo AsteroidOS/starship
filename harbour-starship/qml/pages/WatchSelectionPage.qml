@@ -27,10 +27,10 @@ Page {
         anchors.fill: parent
         model: watches
 
-        StarfishPullDownMenu {}
+        StarshipPullDownMenu {}
 
         header: PageHeader {
-            title: qsTr("Starfish")
+            title: qsTr("Starship")
             description: qsTr("Manage Watches")
         }
 
@@ -81,7 +81,7 @@ Page {
                 anchors.horizontalCenter: parent.horizontalCenter
                 anchors.topMargin: Theme.paddingLarge
                 anchors.top: noWatchLabel.bottom
-                onClicked: starfish.startBT()
+                onClicked: starship.startBT()
             }
         }
     }

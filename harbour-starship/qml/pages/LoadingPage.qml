@@ -29,10 +29,10 @@ Page {
         width: parent.width
 
         PageHeader {
-            title: qsTr("Starfish")
+            title: qsTr("Starship")
         }
 
-        StarfishPullDownMenu {}
+        StarshipPullDownMenu {}
 
         Label {
             width: parent.width

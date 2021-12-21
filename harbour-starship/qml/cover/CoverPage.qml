@@ -48,7 +48,7 @@ CoverBackground {
 
     onStatusChanged: {
         if (status===Cover.Activating) {
-            watch = starfish.getCurWatch()
+            watch = starship.getCurWatch()
         }
     }
 }

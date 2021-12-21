@@ -34,7 +34,7 @@ Page {
             spacing: Theme.paddingLarge
 
             PageHeader {
-                title: qsTr("About Starfish")
+                title: qsTr("About Starship")
             }
 
             Row {
@@ -43,7 +43,7 @@ Page {
                 anchors.margins: Theme.paddingLarge
 
                 Image {
-                    source: "../img/harbour-starfish.svg"
+                    source: "../img/harbour-starship.svg"
                     height: Theme.iconSizeLarge
                     width: height
                 }
