@@ -8,6 +8,7 @@ Forked from [Rockpool](https://github.com/abranson/rockpool).
 |               | Bass | Dory | Lenok | Sparrow | Smelt | Sturgeon |
 | ------------- | ---- | ---- | ------- | ------- | ----- | -------- |
 | XA-2         | ❔️    | ❔    | ❔     | ❔       | ❔️     | ❔        |
+| X 10 II       | ❗    | ❔    | ❔       | ❔       | ❔     | ❔        |
 
 
 | Symbol | meaning                  |
