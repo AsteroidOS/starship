@@ -17,6 +17,8 @@ URL:        http://example.org/
 Source0:    %{name}-%{version}.tar.bz2
 Source100:  harbour-starship.yaml
 Requires:   sailfishsilica-qt5 >= 0.10.9
+Requires(post): /sbin/ldconfig
+Requires(postun): /sbin/ldconfig
 BuildRequires:  pkgconfig(sailfishapp) >= 1.0.2
 BuildRequires:  pkgconfig(Qt5Core)
 BuildRequires:  pkgconfig(Qt5Qml)
@@ -24,6 +26,7 @@ BuildRequires:  pkgconfig(Qt5Quick)
 BuildRequires:  pkgconfig(timed-qt5)
 BuildRequires:  pkgconfig(mpris-qt5)
 BuildRequires:  desktop-file-utils
+BuildRequires:  cmake
 
 %description
 Short description of my Sailfish OS Application
@@ -39,8 +42,7 @@ Short description of my Sailfish OS Application
 # >> build pre
 # << build pre
 
-%qmake5 
-
+%cmake . 
 make %{?_smp_mflags}
 
 # >> build post
@@ -50,7 +52,7 @@ make %{?_smp_mflags}
 rm -rf %{buildroot}
 # >> install pre
 # << install pre
-%qmake5_install
+%make_install
 
 # >> install post
 # << install post
@@ -59,15 +61,21 @@ desktop-file-install --delete-original       \
   --dir %{buildroot}%{_datadir}/applications             \
    %{buildroot}%{_datadir}/applications/*.desktop
 
+%post -p /sbin/ldconfig
+
+%postun -p /sbin/ldconfig
+
 %files
 %defattr(-,root,root,-)
 %{_bindir}/%{name}
-%{_bindir}/harbour-asteroidsyncserviced
+%{_bindir}/asteroidsyncserviced
 %{_datadir}/%{name}
 %{_datadir}/applications/%{name}.desktop
 %{_datadir}/icons/hicolor/*/apps/%{name}.png
 %{_libdir}/qt5/qml/org/asteroid/syncservice/libasteroidsyncserviceplugin.so
 %{_libdir}/qt5/qml/org/asteroid/syncservice/qmldir
-%{_userunitdir}/harbour-asteroidsyncserviced.service
+%{_libdir}/libasteroid.so
+%{_libdir}/libwatchfish.so
+%{_userunitdir}/asteroidsync.service
 # >> files
 # << files

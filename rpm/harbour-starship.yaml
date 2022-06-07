@@ -13,7 +13,7 @@ Sources:
 - '%{name}-%{version}.tar.bz2'
 Description: |
   Short description of my Sailfish OS Application
-Builder: qmake5
+Builder: cmake
 
 # This section specifies build dependencies that are resolved using pkgconfig.
 # This is the preferred way of specifying build dependencies for your package.
@@ -36,13 +36,15 @@ Requires:
 # All installed files
 Files:
   - '%{_bindir}/%{name}'
-  - '%{_bindir}/harbour-asteroidsyncserviced'
+  - '%{_bindir}/asteroidsyncserviced'
   - '%{_datadir}/%{name}'
   - '%{_datadir}/applications/%{name}.desktop'
   - '%{_datadir}/icons/hicolor/*/apps/%{name}.png'
   - '%{_libdir}/qt5/qml/org/asteroid/syncservice/libasteroidsyncserviceplugin.so'
   - '%{_libdir}/qt5/qml/org/asteroid/syncservice/qmldir'
-  - '%{_userunitdir}/harbour-asteroidsyncserviced.service'
+  - '%{_libdir}/libasteroid.so'
+  - '%{_libdir}/libwatchfish.so'
+  - '%{_userunitdir}/asteroidsync.service'
 
 # For more information about yaml and what's supported in Sailfish OS
 # build system, please see https://wiki.merproject.org/wiki/Spectacle
