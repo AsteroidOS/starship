@@ -24,6 +24,7 @@
 #include <QGuiApplication>
 #include <QQuickView>
 #include <sailfishapp.h>
+#include "harbour-starship_config.h"
 
 int main(int argc, char *argv[])
 {

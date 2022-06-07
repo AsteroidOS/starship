@@ -6,3 +6,5 @@ documentation.list
 *.qm
 *.pro.user
 /starship
+/build
+CMakeLists.txt.user
